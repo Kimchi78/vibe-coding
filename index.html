@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini 챗봇</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding-top: 60px; /* 네비게이션 바 높이만큼 패딩 추가 */
+        }
+        .nav {
+            position: fixed; /* 화면 상단에 고정 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 1rem 0;
+            text-align: center;
+            z-index: 1000; /* 다른 요소들 위에 오도록 설정 */
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        .nav a.active, .nav a:hover {
+            background-color: #555;
+        }
+        .lang-selector {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1001;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="index.html" id="nav-home" class="active">홈</a>
+        <a href="login.html" id="nav-login">로그인</a>
+        <a href="register.html" id="nav-register">회원가입</a>
+    </div>
+    <div class="lang-selector">
+        <button onclick="changeLanguage('ko')">한국어</button>
+        <button onclick="changeLanguage('en')">English</button>
+    </div>
+    <div class="container">
+        <h1 id="title">Gemini 챗봇에 오신 것을 환영합니다!</h1>
+        <p id="intro">
+            Gemini 챗봇은 최첨단 AI 기술을 활용하여 사용자의 질문에 답변하고, 창의적인 텍스트를 생성하며, 다양한 작업을 돕는 지능형 어시스턴트입니다. 저희 챗봇은 자연어 처리(NLP) 기술을 기반으로 하여, 마치 사람과 대화하는 듯한 자연스러운 경험을 제공합니다. Gemini와 함께라면 복잡한 문제 해결부터 일상적인 대화까지, 모든 것이 가능해집니다. 지금 바로 시작하여 미래의 AI 기술을 경험해보세요!
+        </p>
+    </div>
+
+    <script>
+        const translations = {
+            ko: {
+                title: "Gemini 챗봇에 오신 것을 환영합니다!",
+                intro: "Gemini 챗봇은 최첨단 AI 기술을 활용하여 사용자의 질문에 답변하고, 창의적인 텍스트를 생성하며, 다양한 작업을 돕는 지능형 어시스턴트입니다. 저희 챗봇은 자연어 처리(NLP) 기술을 기반으로 하여, 마치 사람과 대화하는 듯한 자연스러운 경험을 제공합니다. Gemini와 함께라면 복잡한 문제 해결부터 일상적인 대화까지, 모든 것이 가능해집니다. 지금 바로 시작하여 미래의 AI 기술을 경험해보세요!",
+                navHome: "홈",
+                navLogin: "로그인",
+                navRegister: "회원가입"
+            },
+            en: {
+                title: "Welcome to the Gemini Chatbot!",
+                intro: "The Gemini Chatbot is an intelligent assistant that utilizes cutting-edge AI technology to answer your questions, generate creative text, and assist with various tasks. Based on Natural Language Processing (NLP), our chatbot provides a natural conversational experience, just like talking to a person. With Gemini, everything from solving complex problems to everyday conversations is possible. Get started now and experience the future of AI technology!",
+                navHome: "Home",
+                navLogin: "Login",
+                navRegister: "Register"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.getElementById('title').textContent = translations[lang].title;
+            document.getElementById('intro').textContent = translations[lang].intro;
+            document.getElementById('nav-home').textContent = translations[lang].navHome;
+            document.getElementById('nav-login').textContent = translations[lang].navLogin;
+            document.getElementById('nav-register').textContent = translations[lang].navRegister;
+        }
+    </script>
+</body>
+</html>
